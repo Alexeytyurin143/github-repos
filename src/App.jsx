@@ -1,21 +1,20 @@
 import { useState } from 'react'
 import './App.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCount } from './reducers/reposSlice'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Main from './components/Main/Main'
 
 function App() {
     const dispatch = useDispatch()
     const count = useSelector((state) => state.repos.count)
-
-    const handleClick = () => {
-        dispatch(setCount(4))
-    }
+    const handleClick = () => {}
 
     return (
-        <>
-            <button onClick={handleClick}>Set Count</button>
-            <div>{count}</div>
-        </>
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' Component={Main} />
+            </Routes>
+        </BrowserRouter>
     )
 }
 

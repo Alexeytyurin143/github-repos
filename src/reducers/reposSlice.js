@@ -1,19 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    count: 0,
+    items: [],
+    isFetching: true,
 }
 
 export const reposSlice = createSlice({
     name: 'repos',
     initialState,
     reducers: {
-        setCount: (state, action) => {
-            state.count += action.payload
+        setRepos(state, action) {
+            state.items = action.payload
         },
     },
 })
 
-export const { setCount } = reposSlice.actions
+export const { setRepos } = reposSlice.actions
 
 export default reposSlice.reducer
