@@ -1,0 +1,23 @@
+.repository {
+	background-color: #474747;
+	margin-bottom: 10px;
+	padding: 20px;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+	min-width: 800px;
+}
+
+.description {
+	max-width: 750px;
+}
+
+.lastCommit {
+	align-self: flex-end;
+}
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+}
