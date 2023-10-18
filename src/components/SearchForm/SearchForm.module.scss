@@ -1,0 +1,21 @@
+.searchForm {
+	margin-bottom: 10px;
+	display: flex;
+	gap: 5px;
+}
+
+.searchInput,
+.searchBtn {
+	border: 1px solid #8a898d;
+	border-radius: 3px;
+}
+
+.searchInput {
+	flex-grow: 1;
+	padding: 10px;
+}
+
+.searchBtn {
+	padding: 10px 40px;
+	cursor: pointer;
+}

@@ -1,20 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    items: [],
-    isFetching: true,
+	searchQuery: '',
 }
 
 export const reposSlice = createSlice({
-    name: 'repos',
-    initialState,
-    reducers: {
-        setRepos(state, action) {
-            state.items = action.payload
-        },
-    },
+	name: 'repos',
+	initialState,
+	reducers: {
+		setSearchQuery(state, action) {
+			state.searchQuery = action.payload
+		},
+	},
 })
 
-export const { setRepos } = reposSlice.actions
+export const { setSearchQuery } = reposSlice.actions
 
 export default reposSlice.reducer
