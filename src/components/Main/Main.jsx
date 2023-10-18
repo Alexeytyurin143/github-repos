@@ -1,27 +1,14 @@
-import { useDispatch } from 'react-redux'
-import Repository from '../Repository/Repository'
-import { useGetReposQuery } from '../../actions/repos'
+import styles from './Main.module.scss'
+import Repositories from '../Repositories/Repositories'
+import SearchForm from '../SearchForm/SearchForm'
+import { useState } from 'react'
 
 const Main = () => {
-	const dispatch = useDispatch()
-	const { data, error, isLoading } = useGetReposQuery()
-
 	return (
-		<div>
-			<div>
-				{error ? (
-					<>Что-то пошло не так, обновите страницу или попробуйте позднее</>
-				) : isLoading ? (
-					<>Загрузка...</>
-				) : data ? (
-					<>
-						{data.items.map((repository) => (
-							<Repository repository={repository} key={repository.id} />
-						))}
-					</>
-				) : null}
-			</div>
-		</div>
+		<main className={styles.main}>
+			<SearchForm />
+			<Repositories />
+		</main>
 	)
 }
 
