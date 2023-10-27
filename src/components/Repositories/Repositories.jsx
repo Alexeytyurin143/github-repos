@@ -13,7 +13,6 @@ const Repositories = () => {
 	const perPage = useSelector((state) => state.repos.perPage)
 	const { data, error, isFetching } = useGetReposQuery({ searchQuery, currentPage })
 	const totalPages = data && Math.ceil(data.total_count / perPage)
-	console.log(totalPages)
 	const pages = []
 
 	createPages(pages, totalPages, currentPage)
