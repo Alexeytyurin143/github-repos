@@ -5,7 +5,7 @@ export const reposApi = createApi({
 	baseQuery: fetchBaseQuery({
 		baseUrl: 'https://api.github.com/',
 		prepareHeaders: (headers) => {
-			headers.set('Authorization', 'Bearer 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')
+			headers.set('Authorization', 'Bearer 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')
 			headers.set('X-GitHub-Api-Version', '2022-11-28')
 			return headers
 		},
