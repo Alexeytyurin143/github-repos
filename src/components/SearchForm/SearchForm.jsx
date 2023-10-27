@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import styles from './SearchForm.module.scss'
-import { setSearchQuery } from '../../reducers/reposSlice'
+import { setCurrentPage, setSearchQuery } from '../../reducers/reposSlice'
 
 const SearchForm = () => {
 	const dispatch = useDispatch()
@@ -10,6 +10,7 @@ const SearchForm = () => {
 		const searchData = new FormData(searchForm)
 		const searchQuery = searchData.get('searchQuery')
 		dispatch(setSearchQuery(searchQuery))
+		dispatch(setCurrentPage(1))
 	}
 
 	return (

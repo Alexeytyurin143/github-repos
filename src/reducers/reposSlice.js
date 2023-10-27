@@ -2,6 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
 	searchQuery: '',
+	currentPage: 1,
+	perPage: 10,
 }
 
 export const reposSlice = createSlice({
@@ -11,9 +13,12 @@ export const reposSlice = createSlice({
 		setSearchQuery(state, action) {
 			state.searchQuery = action.payload
 		},
+		setCurrentPage(state, action) {
+			state.currentPage = action.payload
+		},
 	},
 })
 
-export const { setSearchQuery } = reposSlice.actions
+export const { setSearchQuery, setCurrentPage } = reposSlice.actions
 
 export default reposSlice.reducer

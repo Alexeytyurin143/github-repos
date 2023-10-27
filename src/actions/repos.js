@@ -5,11 +5,11 @@ export const reposApi = createApi({
 	baseQuery: fetchBaseQuery({ baseUrl: 'https://api.github.com/' }),
 	endpoints: (builder) => ({
 		getRepos: builder.query({
-			query: (searchQuery = 'stars:>1') => {
+			query: ({ searchQuery, currentPage }) => {
 				if (!searchQuery) {
 					searchQuery = 'stars:>1'
 				}
-				return `search/repositories?q=${searchQuery}&sort=stars`
+				return `search/repositories?q=${searchQuery}&sort=stars&per_page=10&page=${currentPage}`
 			},
 		}),
 	}),
