@@ -4,9 +4,6 @@ import styles from './Pages.module.scss'
 
 const Pages = ({ pages }) => {
 	const dispatch = useDispatch()
-	const currentPage = useSelector((state) => state.repos.currentPage)
-	const perPage = useSelector((state) => state.repos.perPage)
-	const pagesCount = Math.ceil()
 
 	return (
 		<div className={styles.pages}>
