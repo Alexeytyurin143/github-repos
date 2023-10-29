@@ -3,8 +3,8 @@ import Repository from '../Repository/Repository'
 import Loader from '../Loader/Loader'
 import styles from './Repositories.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import Pages from '../Pages/Pages'
-import createPages from '../../utils/pagesCreator'
+import { Pagination } from '@mui/material'
+import { setCurrentPage } from '../../reducers/reposSlice'
 
 const Repositories = () => {
 	const dispatch = useDispatch()
@@ -12,10 +12,7 @@ const Repositories = () => {
 	const currentPage = useSelector((state) => state.repos.currentPage)
 	const perPage = useSelector((state) => state.repos.perPage)
 	const { data, error, isFetching } = useGetReposQuery({ searchQuery, currentPage })
-	const totalPages = data && Math.ceil(data.total_count / perPage)
-	const pages = []
-
-	createPages(pages, totalPages, currentPage)
+	const totalPages = data && Math.ceil(1000 / perPage)
 
 	return (
 		<>
@@ -26,11 +23,25 @@ const Repositories = () => {
 					<Loader />
 				) : data ? (
 					<>
-						<Pages pages={pages} />
+						<Pagination
+							shape='rounded'
+							count={totalPages}
+							page={currentPage}
+							onChange={(_, page) => dispatch(setCurrentPage(page))}
+							siblingCount={4}
+							sx={{ marginY: 1 }}
+						/>
 						{data.items.map((repository) => (
 							<Repository repository={repository} key={repository.id} />
 						))}
-						<Pages pages={pages} />
+						<Pagination
+							shape='rounded'
+							count={totalPages}
+							page={currentPage}
+							onChange={(_, page) => dispatch(setCurrentPage(page))}
+							siblingCount={4}
+							sx={{ marginY: 1 }}
+						/>
 					</>
 				) : null}
 			</div>
